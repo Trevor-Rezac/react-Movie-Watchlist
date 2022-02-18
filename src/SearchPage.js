@@ -27,7 +27,7 @@ export default function SearchPage() {
       </div>
       <div>
         Search Results: 
-        <MovieList />
+        <MovieList movies={results}/>
       </div>
     </>
   );
