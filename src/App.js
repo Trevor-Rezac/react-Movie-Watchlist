@@ -10,7 +10,7 @@ import './App.css';
 import { getUser, logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
-import Watchlist from './Watchlist';
+import Watchlist from './WatchlistPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');

@@ -35,3 +35,11 @@ export async function addToWatchlist(movie) {
 
   return checkError(response);
 }
+
+export async function getWatchlistItems() {
+  const response = await client
+    .from('movie_watchlist')
+    .select();
+  
+  return checkError(response);
+}
