@@ -1,4 +1,4 @@
-import { client } from './client';
+import { checkError, client } from './client';
 
 export function getUser() {
   return client.auth.session() && client.auth.session().user;
@@ -26,4 +26,12 @@ export async function searchMovies(searchQuery) {
   const json = await response.json();
 
   return json.data.results;
+}
+
+export async function addToWatchlist(movie) {
+  const response = await client
+    .from('movie_watchlist')
+    .insert(movie);
+
+  return checkError(response);
 }

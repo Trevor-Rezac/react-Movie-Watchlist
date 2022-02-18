@@ -11,8 +11,7 @@ export default function SearchPage() {
     const movies = await searchMovies(searchQuery);
     setResults(movies);
   }
-
-  console.log('||', results);
+  // console.log('||', results);
 
   return (
     <>
