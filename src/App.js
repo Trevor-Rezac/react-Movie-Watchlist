@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import { getUser } from './services/fetch-utils';
+import { getUser, logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
 
@@ -24,6 +24,8 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
+          {currentUser &&
+          <button onClick={logout}>Logout</button>}
         </header>
         <main>
           <Switch>
