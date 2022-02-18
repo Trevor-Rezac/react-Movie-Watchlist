@@ -20,3 +20,10 @@ export async function logout() {
   return window.location.href = '../';
 }
 
+export async function searchMovies(searchQuery) {
+  const response = await fetch(`/.netlify/functions/movies-endpoint?searchQuery=${searchQuery}`);
+
+  const json = await response.json();
+
+  return json.data.results;
+}
