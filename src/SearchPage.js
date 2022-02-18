@@ -15,7 +15,8 @@ export default function SearchPage() {
 
   return (
     <>
-      <h3>SearchPage</h3>
+      <h3>Search for movies to add to you Watchlist</h3>
+      <p>(click each movie to add it to your list)</p>
       <div className='search-form'>
         <form onSubmit={handleSearch}>
           <input value={searchQuery}

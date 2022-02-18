@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function WatchList() {
+export default function Watchlist() {
   return (
-    <div>WatchList</div>
+    <div>Watchlist</div>
   );
 }

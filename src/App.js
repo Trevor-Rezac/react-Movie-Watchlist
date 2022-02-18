@@ -3,12 +3,14 @@ import {
   BrowserRouter as Router,
   Route,
   Switch, 
-  Redirect
+  Redirect,
+  NavLink
 } from 'react-router-dom';
 import './App.css';
 import { getUser, logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
+import Watchlist from './Watchlist';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -25,7 +27,11 @@ function App() {
       <div className="App">
         <header className="App-header">
           {currentUser &&
-          <button onClick={logout}>Logout</button>}
+          <ul>
+            <NavLink to="/search-page">Search Page</NavLink>
+            <NavLink to="/watchlist">Watchlist</NavLink>
+            <button onClick={logout}>Logout</button>
+          </ul> }
         </header>
         <main>
           <Switch>
@@ -34,6 +40,9 @@ function App() {
             </Route>
             <Route exact path="/search-page">
               {currentUser ? <SearchPage /> : <Redirect to="/"/>}
+            </Route>
+            <Route exact path="/watchlist">
+              {currentUser ? <Watchlist /> : <Redirect to="/"/>}
             </Route>
           </Switch>
         </main>
