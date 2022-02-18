@@ -1,7 +1,7 @@
 import { client } from './client';
 
 export function getUser() {
-  return client.auth.session();
+  return client.auth.session() && client.auth.session().user;
 }
 
 export async function signUp(email, password) {
