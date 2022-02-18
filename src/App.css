@@ -37,10 +37,11 @@
   }
 }
 
-.form-container {
+.form-container, .search-form {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: .5rem;
 }
 
 form {
