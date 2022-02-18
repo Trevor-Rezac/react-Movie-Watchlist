@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signUp } from './services/fetch-utils';
+import { signIn, signUp } from './services/fetch-utils';
 
 export default function AuthPage({ setCurrentUser }) {
   const [emailForm, setEmailForm] = useState('');
@@ -14,11 +14,19 @@ export default function AuthPage({ setCurrentUser }) {
     setPasswordForm('');
   }
 
+  async function handleSignIn(e) {
+    e.preventDefault();
+    const user = await signIn(emailForm, passwordForm);
+    setCurrentUser(user);
+    setEmailForm('');
+    setPasswordForm('');
+  }
+
   return (
     <>
       <h3>AuthPage</h3>
       <div className='form-container'>
-        <form>
+        <form onSubmit={handleSignIn}>
           <input placeholder='Email'
             type='email'
             value={emailForm}
