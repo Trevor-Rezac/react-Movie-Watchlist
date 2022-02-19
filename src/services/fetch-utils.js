@@ -39,7 +39,18 @@ export async function addToWatchlist(movie) {
 export async function getWatchlistItems() {
   const response = await client
     .from('movie_watchlist')
-    .select();
+    .select()
+    .order('id');
   
+  return checkError(response);
+}
+
+export async function watchedMovie(id) {
+  const response = await client
+    .from('movie_watchlist')
+    .update({ watched: true })
+    .match({ id })
+    .single();
+
   return checkError(response);
 }
