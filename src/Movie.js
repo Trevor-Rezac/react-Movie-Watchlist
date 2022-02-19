@@ -3,19 +3,24 @@ import { addToWatchlist } from './services/fetch-utils';
 
 export default function Movie({ movie, isOnWatchlist, fetchMovieData }) {
 
-  async function handleClick() {
-    const watchlistItem = {
-      title: movie.title,
-      poster: movie.poster_path,
-      overview: movie.overview,
-      rating: movie.vote_average,
-      reviews: movie.vote_count,
-      api_id: movie.id,
-      watched: false
-    };
+  const alreadyAdded = isOnWatchlist(movie.id);
 
-    await addToWatchlist(watchlistItem);
-    await fetchMovieData();
+  async function handleClick() {
+    if (!alreadyAdded) {
+      const watchlistItem = {
+        title: movie.title,
+        poster: movie.poster_path,
+        overview: movie.overview,
+        rating: movie.vote_average,
+        reviews: movie.vote_count,
+        api_id: movie.id,
+        watched: false
+      };
+
+      await addToWatchlist(watchlistItem);
+      await fetchMovieData();
+      
+    }
   }
   
   return (
