@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MovieList from './MovieList';
 import { getWatchlistItems } from './services/fetch-utils';
 
 export default function Watchlist() {
@@ -15,9 +16,12 @@ export default function Watchlist() {
 
   }, []);
   
-  // console.log('||', movies);
+  console.log('||', movies);
 
   return (
-    <h3>Watchlist</h3>
+    <div>
+      <h3>Watchlist</h3>
+      <MovieList movies={movies}/>
+    </div>
   );
 }

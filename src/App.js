@@ -10,7 +10,7 @@ import './App.css';
 import { getUser, logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
-import Watchlist from './WatchlistPage';
+import WatchlistPage from './WatchlistPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -42,7 +42,7 @@ function App() {
               {currentUser ? <SearchPage /> : <Redirect to="/"/>}
             </Route>
             <Route exact path="/watchlist">
-              {currentUser ? <Watchlist /> : <Redirect to="/"/>}
+              {currentUser ? <WatchlistPage /> : <Redirect to="/"/>}
             </Route>
           </Switch>
         </main>
