@@ -15,11 +15,9 @@ export default function Watchlist() {
   useEffect(() => {
     fetchMovieData();
   }, []);
-  
-  console.log('||', movies);
 
   return (
-    <div>
+    <div className='watchlist'>
       <h3>Watchlist</h3>
       <p>(click each item to mark it watched)</p>
       <MovieList movies={movies} fetchMovieData={fetchMovieData}/>

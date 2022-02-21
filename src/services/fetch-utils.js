@@ -54,3 +54,12 @@ export async function watchedMovie(id) {
 
   return checkError(response);
 }
+
+export async function deleteMovie(id) {
+  const response = await client
+    .from('movie_watchlist')
+    .delete()
+    .match({ id: id });
+
+  return checkError(response);
+}

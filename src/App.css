@@ -35,18 +35,22 @@ html, body, #root, .App {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.search-page p {
+.search-page p, h3 {
   padding: 0;
   margin: 0;
+}
+
+.search-page h3 {
+  margin-top: 1.5rem;
+}
+
+.watchlist p, h3, h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.watchlist h2 {
+  margin-top: 1rem;
 }
 
 .search-page input {
@@ -54,11 +58,19 @@ html, body, #root, .App {
   border: solid 2px whitesmoke;
   border-radius: 5px;
   color: whitesmoke;
+  outline: none;
+}
+
+.search-page input:focus {
+  background-color: #282c34;
+  border: solid 2px #e25822;
+  border-radius: 5px;
+  color: whitesmoke;
 }
 
 .search-page input::placeholder {
   color: whitesmoke;
-  opacity: 1;
+  opacity: .5;
 }
 
 .form-container, .search-form {
@@ -81,6 +93,7 @@ form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: .5rem;
 }
 
 .movie-poster {
@@ -88,7 +101,7 @@ form {
   height: max-content;
   border: solid 1px black;
   border-radius: 10px;
-  margin: 5px;
+  margin: .5rem;
   padding: .2rem;
   cursor: pointer;
 }
@@ -110,7 +123,7 @@ form {
   border-radius: 5px;
 }
 
-header a, header button, .search-btn {
+header a, header button, .search-btn, .remove-btn {
   border: solid 2px #f5f5f5;
   border-radius: 50px;
   background-color: #282c34;
@@ -120,7 +133,7 @@ header a, header button, .search-btn {
   color: #f5f5f5;
 }
 
-header a:hover, header button:hover, .search-btn:hover, .active-nav {
+header a:hover, header button:hover, .search-btn:hover, .remove-btn:hover, .active-nav {
   border: solid 2px #e25822;
   border-radius: 50px;
   background-color: #282c34;
@@ -137,6 +150,6 @@ header a:hover, header button:hover, .search-btn:hover, .active-nav {
   justify-content: space-evenly;
 }
 
-.search-btn {
+.search-btn, .remove-btn {
   margin: .5rem;
 }

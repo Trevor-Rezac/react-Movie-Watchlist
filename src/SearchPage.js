@@ -34,11 +34,11 @@ export default function SearchPage() {
 
   return (
     <div className='search-page'>
-      <h3>Find movies to add to your Watchlist!</h3>
+      <h3>Add movies to your Watchlist!</h3>
       <p>(click each movie to add it to your list)</p>
       <div className='search-form'>
         <form onSubmit={handleSearch}>
-          <input placeholder='Movie Title' value={searchQuery}
+          <input placeholder='Search by title...' value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button className='search-btn'>Search</button>
