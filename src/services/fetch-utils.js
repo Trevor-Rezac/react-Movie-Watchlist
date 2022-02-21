@@ -55,6 +55,16 @@ export async function watchedMovie(id) {
   return checkError(response);
 }
 
+export async function unWatchedMovie(id) {
+  const response = await client
+    .from('movie_watchlist')
+    .update({ watched: false })
+    .match({ id })
+    .single();
+
+  return checkError(response);
+}
+
 export async function deleteMovie(id) {
   const response = await client
     .from('movie_watchlist')

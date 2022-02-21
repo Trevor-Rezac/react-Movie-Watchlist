@@ -19,7 +19,7 @@ export default function Watchlist() {
   return (
     <div className='watchlist'>
       <h3>Watchlist</h3>
-      <p>(click each item to mark it watched)</p>
+      <p>(click each item to mark it watched/unwatched)</p>
       <MovieList movies={movies} fetchMovieData={fetchMovieData}/>
     </div>
   );
