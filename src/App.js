@@ -11,6 +11,7 @@ import { getUser, logout } from './services/fetch-utils';
 import SearchPage from './SearchPage';
 import AuthPage from './AuthPage';
 import WatchlistPage from './WatchlistPage';
+import PopularMovieList from './PopularMovieList';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -28,6 +29,7 @@ function App() {
         <header className="App-header">
           {currentUser ?
             <div className='nav-links'>
+              <NavLink activeClassName='active-nav' to="/popular-movies">Popular Movies</NavLink>
               <NavLink activeClassName='active-nav' to="/search-page">Search Page</NavLink>
               <NavLink activeClassName='active-nav' to="/watchlist">Watchlist</NavLink>
               <button onClick={logout}>Logout</button>
@@ -43,6 +45,9 @@ function App() {
             </Route>
             <Route exact path="/watchlist">
               {currentUser ? <WatchlistPage /> : <Redirect to="/"/>}
+            </Route>
+            <Route exact path="/popular-movies">
+              {currentUser ? <PopularMovieList /> : <Redirect to="/"/>}
             </Route>
           </Switch>
         </main>

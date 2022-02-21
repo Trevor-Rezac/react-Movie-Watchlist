@@ -28,6 +28,14 @@ export async function searchMovies(searchQuery) {
   return json.data.results;
 }
 
+export async function getPopularMovies() {
+  const response = await fetch('/.netlify/functions/popular-movies-endpoint');
+
+  const json = await response.json();
+  console.log(json);
+  return json.data.results;
+}
+
 export async function addToWatchlist(movie) {
   const response = await client
     .from('movie_watchlist')

@@ -15,7 +15,6 @@ export default function SearchPage() {
   }
   // console.log('||', results);
 
-
   async function fetchMovieData() {
     const movieWatchlist = await getWatchlistItems();
 

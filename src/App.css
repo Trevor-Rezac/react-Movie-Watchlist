@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  
+  overflow: scroll;
 }
 
 html, body, #root, .App {
@@ -29,6 +29,8 @@ html, body, #root, .App {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: sticky;
+  top: 0px;
 }
 
 .App-link {
@@ -49,9 +51,10 @@ html, body, #root, .App {
   margin: 0;
 }
 
-.watchlist h3 {
+.watchlist h3, .popular-movies h3 {
   margin-top: 1rem;
 }
+
 
 .search-page input, .auth-page input {
   background-color: #282c34;
@@ -104,6 +107,7 @@ form {
   margin: .5rem;
   padding: .2rem;
   cursor: pointer;
+  background-color: grey;
 }
 
 .movie-poster:hover {

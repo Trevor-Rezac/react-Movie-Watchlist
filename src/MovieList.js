@@ -8,7 +8,7 @@ export default function MovieList({ movies, fetchMovieData, isOnWatchlist }) {
 
   return (
     <div className='movie-list'>
-      {movies.map((movie, i) => location.pathname.includes('search') 
+      {movies.map((movie, i) => location.pathname.includes('popular') 
         ? <Movie key={`${movie}-${i}`} movie={movie} 
           isOnWatchlist={isOnWatchlist}  
           fetchMovieData={fetchMovieData}/> 
