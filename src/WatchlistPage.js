@@ -21,7 +21,7 @@ export default function Watchlist() {
   return (
     <div>
       <h3>Watchlist</h3>
-      <p>(click each item to mark them watched)</p>
+      <p>(click each item to mark it watched)</p>
       <MovieList movies={movies} fetchMovieData={fetchMovieData}/>
     </div>
   );

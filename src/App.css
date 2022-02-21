@@ -1,6 +1,13 @@
 .App {
   text-align: center;
+  
 }
+
+html, body, #root, .App {
+	height: 100%;
+  background-color: darkgoldenrod;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -37,6 +44,23 @@
   }
 }
 
+.search-page p {
+  padding: 0;
+  margin: 0;
+}
+
+.search-page input {
+  background-color: #282c34;
+  border: solid 2px whitesmoke;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.search-page input::placeholder {
+  color: whitesmoke;
+  opacity: 1;
+}
+
 .form-container, .search-form {
   display: flex;
   justify-content: center;
@@ -61,24 +85,58 @@ form {
 
 .movie-poster {
   width: 15rem;
-  min-height: 300px;
+  height: max-content;
   border: solid 1px black;
   border-radius: 10px;
   margin: 5px;
   padding: .2rem;
   cursor: pointer;
 }
+
 .movie-poster:hover {
-  box-shadow: -2px -2px grey;
-  border: solid 1px darkgray;
+  box-shadow: -2px -2px black;
+  border: solid 1px black;
 }
 
-.movie-poster p {
+.movie-poster p, h4, span {
   font-size: small;
+  padding: 0;
+  margin: 0;
 }
 
 .movie-poster img {
   height: 300px;
   width: 200px;
   border-radius: 5px;
+}
+
+header a, header button, .search-btn {
+  border: solid 2px #f5f5f5;
+  border-radius: 50px;
+  background-color: #282c34;
+  text-decoration: none;
+  padding: 5px;
+  font-size: small;
+  color: #f5f5f5;
+}
+
+header a:hover, header button:hover, .search-btn:hover, .active-nav {
+  border: solid 2px #e25822;
+  border-radius: 50px;
+  background-color: #282c34;
+  text-decoration: none;
+  padding: 5px;
+  font-size: small;
+  color: #e25822;
+}
+
+.nav-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.search-btn {
+  margin: .5rem;
 }

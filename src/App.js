@@ -21,17 +21,17 @@ function App() {
     setCurrentUser(user);
   }, []);
 
-  console.log('||', currentUser);
+  
   return (
     <Router>
       <div className="App">
         <header className="App-header">
           {currentUser &&
-          <ul>
-            <NavLink to="/search-page">Search Page</NavLink>
-            <NavLink to="/watchlist">Watchlist</NavLink>
+          <div className='nav-links'>
+            <NavLink activeClassName='active-nav' to="/search-page">Search Page</NavLink>
+            <NavLink activeClassName='active-nav' to="/watchlist">Watchlist</NavLink>
             <button onClick={logout}>Logout</button>
-          </ul> }
+          </div> }
         </header>
         <main>
           <Switch>

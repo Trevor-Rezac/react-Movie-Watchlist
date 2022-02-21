@@ -33,21 +33,21 @@ export default function SearchPage() {
   }
 
   return (
-    <>
-      <h3>Search for movies to add to your Watchlist</h3>
+    <div className='search-page'>
+      <h3>Find movies to add to your Watchlist!</h3>
       <p>(click each movie to add it to your list)</p>
       <div className='search-form'>
         <form onSubmit={handleSearch}>
-          <input value={searchQuery}
+          <input placeholder='Movie Title' value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button>Search</button>
+          <button className='search-btn'>Search</button>
         </form>
       </div>
       <div>
         Search Results: 
         <MovieList movies={results} isOnWatchlist={isOnWatchlist} fetchMovieData={fetchMovieData}/>
       </div>
-    </>
+    </div>
   );
 }

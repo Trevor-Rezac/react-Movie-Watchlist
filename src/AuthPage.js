@@ -24,7 +24,7 @@ export default function AuthPage({ setCurrentUser }) {
 
   return (
     <>
-      <h3>AuthPage</h3>
+      <h3>Movie Watchlist</h3>
       <div className='form-container'>
         <form onSubmit={handleSignIn}>
           <input placeholder='Email'
