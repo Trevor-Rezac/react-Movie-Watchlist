@@ -22,7 +22,7 @@ export default function WatchlistItem({ movie, fetchMovieData }) {
     <div className='movie-poster'
       onClick={movie.watched ? handleUnWatchClick : handleWatchClick}>
       <h4 style={{ color: 'green' }}>{movie.watched ? 'Watched' : '👀' }</h4>
-      <h2>{movie.title}</h2>
+      <h2 className='movie-title'>{movie.title}</h2>
       <p>{movie.overview}</p>
       <img src={movie.poster ? `https://image.tmdb.org/t/p/original/${movie.poster}` : 'https://www.placecage.com/gif/200/300'}/>
       <h4>Average Rating: {movie.rating}⭐</h4>

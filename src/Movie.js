@@ -27,8 +27,9 @@ export default function Movie({ movie, isOnWatchlist, fetchMovieData }) {
     <div className='movie-poster'
       onClick={handleClick}
     >
-      <h1>{isOnWatchlist(movie.id) && 'On Watchlist'}</h1>
-      <h3>{movie.title}</h3>
+      <h4 style={{ color: 'green' }} > 
+        {isOnWatchlist(movie.id) && 'Added to Watchlist'} </h4>
+      <h2 className='movie-title'>{movie.title}</h2>
       <p>{movie.overview}</p>
       <img src={movie.poster_path ? `https://image.tmdb.org/t/p/original/${movie.poster_path}` : 'https://www.placecage.com/gif/200/300'}/>
       <h4>Average Rating: {movie.vote_average}⭐</h4>

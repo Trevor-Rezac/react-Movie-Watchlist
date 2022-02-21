@@ -53,7 +53,7 @@ html, body, #root, .App {
   margin-top: 1rem;
 }
 
-.search-page input {
+.search-page input, .auth-page input {
   background-color: #282c34;
   border: solid 2px whitesmoke;
   border-radius: 5px;
@@ -61,7 +61,7 @@ html, body, #root, .App {
   outline: none;
 }
 
-.search-page input:focus {
+.search-page input:focus, .auth-page input:focus {
   background-color: #282c34;
   border: solid 2px #e25822;
   border-radius: 5px;
@@ -118,12 +118,16 @@ form {
 }
 
 .movie-poster img {
-  height: 300px;
-  width: 200px;
+  height: 200px;
+  width: 150px;
   border-radius: 5px;
 }
 
-header a, header button, .search-btn, .remove-btn {
+.movie-title {
+  text-decoration: underline;
+}
+
+header a, header button, .search-btn, .remove-btn, .sign-in-btn, .sign-up-btn {
   border: solid 2px #f5f5f5;
   border-radius: 50px;
   background-color: #282c34;
@@ -133,7 +137,7 @@ header a, header button, .search-btn, .remove-btn {
   color: #f5f5f5;
 }
 
-header a:hover, header button:hover, .search-btn:hover, .remove-btn:hover, .active-nav {
+header a:hover, header button:hover, .search-btn:hover, .remove-btn:hover, .sign-in-btn:hover, .sign-up-btn:hover, .active-nav {
   border: solid 2px #e25822;
   border-radius: 50px;
   background-color: #282c34;
@@ -151,5 +155,12 @@ header a:hover, header button:hover, .search-btn:hover, .remove-btn:hover, .acti
 }
 
 .search-btn, .remove-btn {
+  margin: .5rem;
+}
+
+.auth-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin: .5rem;
 }
