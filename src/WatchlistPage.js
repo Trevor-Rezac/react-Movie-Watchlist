@@ -20,7 +20,7 @@ export default function Watchlist() {
     <div className='watchlist'>
       <h3>Watchlist</h3>
       <p>(click each item to mark it watched/unwatched)</p>
-      <MovieList movies={movies} fetchMovieData={fetchMovieData}/>
+      {movies.length ? <MovieList movies={movies} fetchMovieData={fetchMovieData}/> : <h3>You Haven&apos;t Added Any Movies Yet!!!</h3>}
     </div>
   );
 }
