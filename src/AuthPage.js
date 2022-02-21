@@ -24,15 +24,17 @@ export default function AuthPage({ setCurrentUser }) {
 
   return (
     <div className='auth-page'>
-      <h3>Movie Watchlist</h3>
+      <h3>Sign In / Sign Up</h3>
       <div className='form-container'>
         <form onSubmit={handleSignIn}>
-          <input placeholder='Email'
+          <input required 
+            placeholder='Email'
             type='email'
             value={emailForm}
             onChange={(e) => setEmailForm(e.target.value)}
           />
-          <input placeholder='Password'
+          <input required
+            placeholder='Password'
             type='password'
             value={passwordForm}
             onChange={(e) => setPasswordForm(e.target.value)}

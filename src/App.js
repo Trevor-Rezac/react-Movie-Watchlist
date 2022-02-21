@@ -26,12 +26,12 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          {currentUser &&
-          <div className='nav-links'>
-            <NavLink activeClassName='active-nav' to="/search-page">Search Page</NavLink>
-            <NavLink activeClassName='active-nav' to="/watchlist">Watchlist</NavLink>
-            <button onClick={logout}>Logout</button>
-          </div> }
+          {currentUser ?
+            <div className='nav-links'>
+              <NavLink activeClassName='active-nav' to="/search-page">Search Page</NavLink>
+              <NavLink activeClassName='active-nav' to="/watchlist">Watchlist</NavLink>
+              <button onClick={logout}>Logout</button>
+            </div> : <h2>Movie Watchlist</h2>}
         </header>
         <main>
           <Switch>
