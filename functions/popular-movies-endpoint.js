@@ -2,9 +2,12 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 
-exports.handler = async (event, context) => {
+exports.handler = async () => {
+
+  const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.MOVIE_API_KEY}`;
+
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    const response = await fetch(URL);
     const data = await response.json();
     const json = JSON.stringify({ data });
     
@@ -19,4 +22,5 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ error: 'Failed fetching data' }),
     };
   }
+
 };

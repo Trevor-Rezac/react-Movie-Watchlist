@@ -1,6 +1,13 @@
 .App {
   text-align: center;
+  overflow: scroll;
 }
+
+html, body, #root, .App {
+	height: 100%;
+  background-color: darkgoldenrod;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -15,24 +22,149 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: sticky;
+  top: 0px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-page p, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.search-page h3 {
+  margin-top: 1.5rem;
+}
+
+.watchlist p, h3, h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.watchlist h3, .popular-movies h3 {
+  margin-top: 1rem;
+}
+
+
+.search-page input, .auth-page input {
+  background-color: #282c34;
+  border: solid 2px whitesmoke;
+  border-radius: 5px;
+  color: whitesmoke;
+  outline: none;
+}
+
+.search-page input:focus, .auth-page input:focus {
+  background-color: #282c34;
+  border: solid 2px #e25822;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.search-page input::placeholder {
+  color: whitesmoke;
+  opacity: .5;
+}
+
+.form-container, .search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+.movie-poster {
+  width: 15rem;
+  height: max-content;
+  border: solid 1px black;
+  border-radius: 10px;
+  margin: .5rem;
+  padding: .2rem;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.movie-poster:hover {
+  box-shadow: -2px -2px black;
+  border: solid 1px black;
+}
+
+.movie-poster p, h4, span {
+  font-size: small;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-poster img {
+  height: 200px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.movie-title {
+  text-decoration: underline;
+}
+
+header a, header button, .search-btn, .remove-btn, .sign-in-btn, .sign-up-btn {
+  border: solid 2px #f5f5f5;
+  border-radius: 50px;
+  background-color: #282c34;
+  text-decoration: none;
+  padding: 5px;
+  font-size: small;
+  color: #f5f5f5;
+}
+
+header a:hover, header button:hover, .search-btn:hover, .remove-btn:hover, .sign-in-btn:hover, .sign-up-btn:hover, .active-nav {
+  border: solid 2px #e25822;
+  border-radius: 50px;
+  background-color: #282c34;
+  text-decoration: none;
+  padding: 5px;
+  font-size: small;
+  color: #e25822;
+}
+
+.nav-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.search-btn, .remove-btn {
+  margin: .5rem;
+}
+
+.auth-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: .5rem;
 }
