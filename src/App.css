@@ -109,8 +109,9 @@ form {
 }
 
 .movie-poster:hover {
-  box-shadow: -2px -2px black;
+  box-shadow: -1px -1px black;
   border: solid 1px black;
+  opacity: .8;
 }
 
 .movie-poster p, h4, span {
