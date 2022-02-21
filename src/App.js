@@ -38,7 +38,7 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              {currentUser ? <Redirect to="/search-page"/> : <AuthPage setCurrentUser={setCurrentUser}/>}
+              {currentUser ? <Redirect to="/watchlist"/> : <AuthPage setCurrentUser={setCurrentUser}/>}
             </Route>
             <Route exact path="/search-page">
               {currentUser ? <SearchPage /> : <Redirect to="/"/>}

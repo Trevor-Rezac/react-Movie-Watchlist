@@ -1,13 +1,53 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { getWatchlistItems, addToWatchlist } from './services/fetch-utils';
 
 export default function PopularMovie({ movie }) {
   
+  const [watchlist, setWatchlist] = useState([]);
+  
+  async function fetchMovieData() {
+    const movieWatchlist = await getWatchlistItems();
+
+    setWatchlist(movieWatchlist);
+  }
+
+  useEffect(() => {
+    fetchMovieData();
+  }, []);
+
+  function isOnWatchlist(api_id) {
+    const match = watchlist.find(watchlistItem => Number(watchlistItem.api_id) === Number(api_id));
+
+    return Boolean(match);
+  }
+
+  const alreadyAdded = isOnWatchlist(movie.id);
+
+  async function handleClick() {
+    if (!alreadyAdded) {
+      const watchlistItem = {
+        title: movie.title,
+        poster: movie.poster_path,
+        overview: movie.overview,
+        rating: movie.vote_average,
+        reviews: movie.vote_count,
+        api_id: movie.id,
+        watched: false
+      };
+
+      await addToWatchlist(watchlistItem);
+      await fetchMovieData();
+      
+    }
+  }
+
   return (
     <div className='movie-poster'
-      // onClick={handleClick}
+      onClick={handleClick}
     >
       <h4 style={{ color: 'green' }} > 
-        {/* {isOnWatchlist(movie.id) && 'Added to Watchlist'}  */}
+        {isOnWatchlist(movie.id) && 'Added to Watchlist'} 
       </h4>
       <h2 className='movie-title'>{movie.title}</h2>
       <p>{movie.overview}</p>
