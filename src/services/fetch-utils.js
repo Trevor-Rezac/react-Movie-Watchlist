@@ -32,7 +32,7 @@ export async function getPopularMovies() {
   const response = await fetch('/.netlify/functions/popular-movies-endpoint');
 
   const json = await response.json();
-  console.log(json);
+  
   return json.data.results;
 }
 
