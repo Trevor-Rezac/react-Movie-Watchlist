@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import MovieList from './MovieList';
 import { searchMovies, getWatchlistItems } from './services/fetch-utils';
+import LoadingSpinner from './LoadingSpinner';
 
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSearch(e) {
     e.preventDefault();
+    setIsLoading(true);
     const movies = await searchMovies(searchQuery);
     setResults(movies);
+    setIsLoading(false);
   }
   // console.log('||', results);
 
@@ -44,8 +48,9 @@ export default function SearchPage() {
         </form>
       </div>
       <div>
-        Search Results: 
-        <MovieList movies={results} isOnWatchlist={isOnWatchlist} fetchMovieData={fetchMovieData}/>
+        Search Results:
+        {isLoading ? <LoadingSpinner /> : <MovieList movies={results} isOnWatchlist={isOnWatchlist} fetchMovieData={fetchMovieData}/>}
+
       </div>
     </div>
   );
