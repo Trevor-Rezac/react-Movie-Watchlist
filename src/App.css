@@ -79,8 +79,8 @@ h2 {
 }
 
 .search-page input::placeholder {
-  color: whitesmoke;
-  opacity: 0.5;
+  color: darkgrey;
+  /* opacity: 0.5; */
 }
 
 .form-container,
@@ -121,7 +121,7 @@ form {
 .movie-poster:hover {
   box-shadow: -1px -1px black;
   border: solid 1px black;
-  opacity: 0.8;
+  background-color: rgb(141, 140, 140);
 }
 
 .movie-poster p,
@@ -220,18 +220,19 @@ header button:hover,
   list-style: none;
   position: fixed;
   top: 0;
-  background: #282c34;
-  left: -39px;
+  left: -40px;
   bottom: 0;
   height: 100vh;
   width: 0px;
+  margin: 0 auto;
   overflow: hidden;
   max-width: 200px;
+  background: #282c34;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: flex-end;
-  /* z-index: 9; */
+  z-index: 9;
 }
 
 .menuNav.showMenu {
