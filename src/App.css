@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Electrolize&display=swap');
+
 .App {
   text-align: center;
   overflow: scroll;
@@ -9,6 +11,7 @@ body,
 .App {
   height: 100%;
   background-color: darkgoldenrod;
+  font-family: 'Electrolize', sans-serif;
 }
 
 .App-logo {
@@ -33,6 +36,11 @@ body,
   color: white;
   position: sticky;
   top: 0px;
+}
+
+.nav-header {
+  font-family: 'Audiowide', cursive;
+  font-size: larger;
 }
 
 .App-link {
