@@ -1,12 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { logout } from './services/fetch-utils';
 import menuIcon from './menuIcon.png';
 import closeIcon from './closeIcon.png';
 
 export default function NavBar() {
   const [navBarOpen, setNavBarOpen] = useState(false);
+  const [header, setHeader] = useState('');
+  const location = useLocation();
 
   function handleToggle() {
     setNavBarOpen(!navBarOpen);
@@ -15,6 +16,18 @@ export default function NavBar() {
   function closeMenu() {
     setNavBarOpen(false);
   }
+
+  useEffect(() => {
+    if (location.pathname.includes('popular')) {
+      setHeader('Weekly Top Movies');
+    }
+    if (location.pathname.includes('search')) {
+      setHeader('Search Page');
+    }
+    if (location.pathname.includes('watchlist')) {
+      setHeader('Watchlist');
+    }
+  }, [location.pathname]);
 
   return (
     <nav className="navBar">
@@ -39,6 +52,7 @@ export default function NavBar() {
           Logout
         </button>
       </ul>
+      <h2 className="nav-header">{header}</h2>
     </nav>
   );
 }

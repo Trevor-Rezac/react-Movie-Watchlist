@@ -11,16 +11,19 @@ export default function Watchlist() {
     setMovies(movieWatchlist);
   }
 
-
   useEffect(() => {
     fetchMovieData();
   }, []);
 
   return (
-    <div className='watchlist'>
-      <h3>Watchlist</h3>
+    <div className="watchlist">
+      {/* <h3>Watchlist</h3> */}
       <p>(click each item to mark it watched/unwatched)</p>
-      {movies.length ? <MovieList movies={movies} fetchMovieData={fetchMovieData}/> : <h3>You Haven&apos;t Added Any Movies Yet!!!</h3>}
+      {movies.length ? (
+        <MovieList movies={movies} fetchMovieData={fetchMovieData} />
+      ) : (
+        <h3>You Haven&apos;t Added Any Movies Yet!!!</h3>
+      )}
     </div>
   );
 }
