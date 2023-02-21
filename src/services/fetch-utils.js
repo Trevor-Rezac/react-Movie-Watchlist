@@ -17,7 +17,7 @@ export async function signIn(email, password) {
 export async function logout() {
   await client.auth.signOut();
 
-  return window.location.href = '../';
+  return (window.location.href = '../');
 }
 
 export async function searchMovies(searchQuery) {
@@ -29,27 +29,35 @@ export async function searchMovies(searchQuery) {
 }
 
 export async function getPopularMovies() {
-  const response = await fetch('/.netlify/functions/popular-movies-endpoint');
+  const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`;
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
 
-  const json = await response.json();
-  
-  return json.data.results;
+    const json = JSON.stringify({ data });
+
+    return {
+      statusCode: 200,
+      body: json,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed fetching data' }),
+    };
+  }
 }
 
 export async function addToWatchlist(movie) {
-  const response = await client
-    .from('movie_watchlist')
-    .insert(movie);
+  const response = await client.from('movie_watchlist').insert(movie);
 
   return checkError(response);
 }
 
 export async function getWatchlistItems() {
-  const response = await client
-    .from('movie_watchlist')
-    .select()
-    .order('id');
-  
+  const response = await client.from('movie_watchlist').select().order('id');
+
   return checkError(response);
 }
 
@@ -74,10 +82,7 @@ export async function unWatchedMovie(id) {
 }
 
 export async function deleteMovie(id) {
-  const response = await client
-    .from('movie_watchlist')
-    .delete()
-    .match({ id: id });
+  const response = await client.from('movie_watchlist').delete().match({ id: id });
 
   return checkError(response);
 }

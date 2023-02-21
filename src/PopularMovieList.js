@@ -6,8 +6,9 @@ export default function PopularMovieList() {
   const [popularMovies, setPopularMovies] = useState([]);
 
   async function fetchPopularMovies() {
-    const popularMovies = await getPopularMovies();
-    setPopularMovies(popularMovies);
+    const { body } = await getPopularMovies();
+    const parsedData = JSON.parse(body).valueOf().data.results;
+    setPopularMovies(parsedData);
   }
 
   useEffect(() => {
